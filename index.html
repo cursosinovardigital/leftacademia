@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Left Academia — Você é mais forte do que pensa</title>
+<title>Left Academia — Resultado não espera segunda</title>
 <meta name="description" content="Left Academia em Guarulhos. Matricule-se, compre sua diária e treine com quem entende de resultado." />
 
 <!-- Fonts -->
@@ -18,13 +18,13 @@
     theme: {
       extend: {
         colors: {
-          base: '#0D0D0D',
-          surface: '#151515',
-          card: '#1B1B1B',
+          base: '#0A0A0A',
+          surface: '#141414',
+          card: '#1A1A1A',
           line: '#2A2A2A',
           muted: '#9A9A9A',
           brand: {
-            red: '#E50914',
+            red: '#E5091A',
             reddark: '#B0060F',
           }
         },
@@ -42,26 +42,37 @@
 
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color:#0D0D0D; font-family:'Inter',sans-serif; }
+  body { background-color:#0A0A0A; font-family:'Inter',sans-serif; }
   .font-display { font-family:'Anton', sans-serif; letter-spacing:0.01em; }
 
-  /* Ghost outline text - signature element echoing the brand creative */
+  /* Ghost outline text - signature element, echoes the "no more waiting for Monday" idea */
   .ghost-text {
-    -webkit-text-stroke: 1.5px rgba(255,255,255,0.08);
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.07);
     color: transparent;
     line-height: 0.85;
   }
   @media (min-width: 768px) {
-    .ghost-text { -webkit-text-stroke: 2px rgba(255,255,255,0.07); }
+    .ghost-text { -webkit-text-stroke: 2px rgba(255,255,255,0.06); }
   }
 
+  /* Small red badge — the ONE accent color, used sparingly and only for details */
   .diag-tag {
     display:inline-flex;
     align-items:center;
     gap:0.5rem;
     padding: 0.35rem 0.9rem;
-    background: linear-gradient(100deg, #E50914 0%, #B0060F 100%);
+    background: linear-gradient(100deg, #E5091A 0%, #B0060F 100%);
     clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
+  }
+
+  /* red dot marker used before section eyebrows — a repeated tiny detail, not a color block */
+  .eyebrow-dot::before {
+    content:'';
+    display:inline-block;
+    width:6px; height:6px;
+    background:#E5091A;
+    margin-right:8px;
+    transform: translateY(-1px);
   }
 
   .noise-overlay {
@@ -73,32 +84,34 @@
     letter-spacing: 0.15em;
   }
 
-  ::selection { background:#E50914; color:#fff; }
+  ::selection { background:#F5F5F5; color:#0A0A0A; }
 
   .scrollbar-none::-webkit-scrollbar{ display:none; }
 
-  /* card hover lift */
+  /* card hover lift — monochrome, red reserved for the highlighted plan only */
   .lift { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
-  .lift:hover { transform: translateY(-6px); border-color:#E50914; box-shadow: 0 20px 40px -20px rgba(229,9,20,0.35); }
+  .lift:hover { transform: translateY(-6px); border-color:#6b6b6b; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6); }
 
+  /* Primary CTA is now white/black — bold, matte, gym-brand neutral */
   .btn-primary {
-    background:#E50914;
+    background:#F5F5F5;
+    color:#0A0A0A;
     transition: background .25s ease, transform .2s ease;
   }
-  .btn-primary:hover { background:#c40810; transform: translateY(-2px); }
+  .btn-primary:hover { background:#D6D6D6; transform: translateY(-2px); }
   .btn-primary:active { transform: translateY(0); }
 
   .btn-outline {
     border:1.5px solid #FFFFFF;
     transition: background .25s ease, color .25s ease;
   }
-  .btn-outline:hover { background:#FFFFFF; color:#0D0D0D; }
+  .btn-outline:hover { background:#FFFFFF; color:#0A0A0A; }
 
   .nav-link { position:relative; }
   .nav-link::after {
     content:'';
     position:absolute; left:0; bottom:-6px; height:2px; width:0;
-    background:#E50914; transition: width .25s ease;
+    background:#FFFFFF; transition: width .25s ease;
   }
   .nav-link:hover::after { width:100%; }
 
@@ -107,7 +120,7 @@
 
   .toast {
     position:fixed; bottom:24px; right:24px; z-index:100;
-    background:#151515; border:1px solid #2A2A2A;
+    background:#141414; border:1px solid #2A2A2A;
     padding:14px 18px; border-radius:10px; color:#fff;
     display:flex; align-items:center; gap:10px;
     transform: translateY(30px); opacity:0; pointer-events:none;
@@ -116,6 +129,44 @@
   .toast.show { transform: translateY(0); opacity:1; }
 
   input[type="radio"].plan-toggle:checked + label { color:#fff; }
+
+  /* Signature motion: "segunda" gets struck through on load — resultado não espera segunda */
+  .strike-word { position:relative; white-space:nowrap; }
+  .strike-word::after {
+    content:'';
+    position:absolute; left:-2%; right:-2%; top:52%; height:3px;
+    background:#F5F5F5;
+    width:0;
+    animation: drawLine .55s ease forwards;
+    animation-delay: 1.15s;
+  }
+  @keyframes drawLine { to { width:104%; left:-2%; } }
+
+  /* Marquee ticker band */
+  .marquee-track {
+    display:flex;
+    width:max-content;
+    animation: scrollMarquee 26s linear infinite;
+  }
+  @keyframes scrollMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Logo lockup used in header + footer, replaces missing image asset */
+  .logo-mark { line-height:0.95; }
+  .logo-mark .l1 { font-family:'Anton', sans-serif; letter-spacing:0.02em; }
+  .logo-mark .l2 { font-family:'Inter', sans-serif; letter-spacing:0.35em; color:#9A9A9A; }
+
+  /* gallery image treatment for the estrutura strip */
+  .gallery-img { transition: transform .6s ease; }
+  .gallery-card:hover .gallery-img { transform: scale(1.06); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    .strike-word::after { animation: none; width:104%; }
+    .fade-up { transition: none; }
+  }
 </style>
 </head>
 
@@ -124,8 +175,11 @@
 <!-- ======================= HEADER ======================= -->
 <header id="header" class="fixed top-0 left-0 right-0 z-50 border-b border-line/0 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
-    <a href="#inicio" class="flex items-center gap-2 shrink-0">
-      <img src="imagesLogo_LEFT.png.png" alt="Left Academia" class="h-9 md:h-10 w-auto" />
+    <a href="#inicio" class="flex items-center gap-2 shrink-0 logo-mark">
+      <span class="flex flex-col">
+        <span class="l1 text-2xl md:text-[1.7rem] uppercase text-white">LEFT</span>
+        <span class="l2 text-[9px] md:text-[10px] uppercase -mt-0.5">Academia</span>
+      </span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-9 font-body font-medium text-sm text-gray-200">
@@ -142,7 +196,7 @@
         <i data-lucide="shopping-cart" class="w-5 h-5"></i>
         <span id="cartCount" class="absolute -top-1 -right-1 bg-brand-red text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
       </button>
-      <a href="#planos" class="hidden md:inline-flex btn-primary text-white text-sm font-bold px-5 py-2.5 rounded-full uppercase tracking-wide">
+      <a href="#planos" class="hidden md:inline-flex btn-primary text-sm font-bold px-5 py-2.5 rounded-full uppercase tracking-wide">
         Matricule-se Já
       </a>
       <button id="menuBtn" class="lg:hidden p-2.5 rounded-full hover:bg-white/10" aria-label="Abrir menu">
@@ -160,23 +214,23 @@
       <a href="#loja" class="mobile-link py-1">Loja</a>
       <a href="#app" class="mobile-link py-1">App</a>
       <a href="#contato" class="mobile-link py-1">Contato</a>
-      <a href="#planos" class="mobile-link btn-primary text-white text-center font-bold px-5 py-3 rounded-full uppercase tracking-wide mt-2">Matricule-se Já</a>
+      <a href="#planos" class="mobile-link btn-primary text-center font-bold px-5 py-3 rounded-full uppercase tracking-wide mt-2">Matricule-se Já</a>
     </nav>
   </div>
 </header>
 
 <!-- ======================= HERO ======================= -->
 <section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden pt-28 pb-0 md:pb-0">
-  <!-- background image -->
+  <!-- background image: real free-license photo, swap for your own studio shot whenever you're ready -->
   <div class="absolute inset-0">
-    <img src="images12.png.png" alt="Aluno da Left Academia treinando com kettlebell" class="w-full h-full object-cover object-top opacity-90" />
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/70 md:via-[#0D0D0D]/40 to-[#0D0D0D]/60"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/10 to-transparent"></div>
+    <img id="heroImg" src="https://images.unsplash.com/photo-1532384555668-bc0c32a17ffd?auto=format&fit=crop&w=1600&q=80" alt="Aluno da Left Academia treinando com peso livre" class="w-full h-full object-cover object-top opacity-90 scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 md:via-[#0A0A0A]/40 to-[#0A0A0A]/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/10 to-transparent"></div>
   </div>
 
-  <!-- ghost text background -->
+  <!-- ghost text background: the crossed-out "SEGUNDA" motif repeated large -->
   <div class="absolute inset-x-0 bottom-0 select-none pointer-events-none overflow-hidden">
-    <p class="font-display ghost-text text-[22vw] md:text-[16vw] leading-none whitespace-nowrap pl-2">FORTE</p>
+    <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2">SEGUNDA</p>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full pb-14 md:pb-0">
@@ -186,73 +240,120 @@
       </span>
 
       <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] uppercase mt-5">
-        Você é <span class="text-brand-red">mais forte</span> do que pensa
+        Resultado não espera <span class="strike-word">segunda</span> <span class="text-brand-red">hoje.</span>
       </h1>
 
       <p class="mt-6 text-gray-300 text-base md:text-lg font-body max-w-md">
-        Você não precisa começar segunda. Precisa <span class="text-white font-semibold">COMEÇAR HOJE!</span>
-        Estrutura completa, professores presentes e um plano no seu ritmo.
+        Chega de adiar. Estrutura completa, professor por perto em qualquer horário
+        e um plano que acompanha o seu ritmo — não o contrário.
       </p>
 
       <div class="mt-9 flex flex-wrap gap-4">
-        <a href="#planos" class="btn-primary text-white font-bold px-7 py-3.5 rounded-full uppercase text-sm tracking-wide inline-flex items-center gap-2">
-          Escolher Plano <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        <a href="#planos" class="btn-primary font-bold px-7 py-3.5 rounded-full uppercase text-sm tracking-wide inline-flex items-center gap-2">
+          Ver Planos <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
         <a href="#diaria" class="btn-outline text-white font-bold px-7 py-3.5 rounded-full uppercase text-sm tracking-wide">
-          Comprar Diária
+          Diária Avulsa
         </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ======================= MARQUEE TICKER ======================= -->
+<div class="border-y border-line bg-surface py-4 overflow-hidden">
+  <div class="marquee-track font-display text-lg md:text-xl uppercase text-white/25 tracking-wide">
+    <span class="flex items-center gap-6 pr-6">
+      <span>Sem atalho</span><span class="text-brand-red">✦</span>
+      <span>Só consistência</span><span class="text-brand-red">✦</span>
+      <span>Cada treino conta</span><span class="text-brand-red">✦</span>
+      <span>Seu ritmo, seu resultado</span><span class="text-brand-red">✦</span>
+      <span>Treino não espera segunda</span><span class="text-brand-red">✦</span>
+    </span>
+    <span class="flex items-center gap-6 pr-6" aria-hidden="true">
+      <span>Sem atalho</span><span class="text-brand-red">✦</span>
+      <span>Só consistência</span><span class="text-brand-red">✦</span>
+      <span>Cada treino conta</span><span class="text-brand-red">✦</span>
+      <span>Seu ritmo, seu resultado</span><span class="text-brand-red">✦</span>
+      <span>Treino não espera segunda</span><span class="text-brand-red">✦</span>
+    </span>
+  </div>
+</div>
+
 <!-- ======================= SOBRE / TRUST BAR ======================= -->
-<section id="sobre" class="relative bg-surface border-y border-line py-16 md:py-20">
+<section id="sobre" class="relative bg-surface border-b border-line py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="fade-up">
-        <span class="section-eyebrow text-brand-red text-xs uppercase">// Sobre a Left</span>
-        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">Treino sério, <br class="hidden md:block"/>sem enrolação</h2>
+        <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Sobre a Left</span>
+        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">Menos discurso. <br class="hidden md:block"/>Mais repetição.</h2>
         <p class="text-gray-400 mt-5 font-body leading-relaxed">
-          A Left Academia nasceu para quem quer resultado de verdade: estrutura completa de musculação e
-          funcional, professores presentes em todos os horários e um app próprio pra você acompanhar cada
-          evolução. Sem promessa vazia — só treino, disciplina e progresso.
+          Aqui não tem fórmula mágica nem treino genérico. É estrutura completa de musculação e
+          funcional, professor por perto em qualquer horário e um app que mostra sua evolução em
+          números — não em promessa.
         </p>
         <div class="grid grid-cols-3 gap-6 mt-10">
           <div>
-            <p class="font-display text-3xl md:text-4xl text-brand-red">7</p>
-            <p class="text-gray-400 text-xs uppercase mt-1 tracking-wide">Dias por semana</p>
+            <p class="font-display text-3xl md:text-4xl text-white counter" data-target="7">0</p>
+            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
+            <p class="text-gray-400 text-xs uppercase tracking-wide">Dias por semana</p>
           </div>
           <div>
-            <p class="font-display text-3xl md:text-4xl text-brand-red">+30</p>
-            <p class="text-gray-400 text-xs uppercase mt-1 tracking-wide">Aparelhos</p>
+            <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="30">0</span>+</p>
+            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
+            <p class="text-gray-400 text-xs uppercase tracking-wide">Aparelhos</p>
           </div>
           <div>
-            <p class="font-display text-3xl md:text-4xl text-brand-red">22h</p>
-            <p class="text-gray-400 text-xs uppercase mt-1 tracking-wide">Fechamento diário</p>
+            <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="22">0</span>h</p>
+            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
+            <p class="text-gray-400 text-xs uppercase tracking-wide">Fechamento diário</p>
           </div>
         </div>
       </div>
 
       <div class="relative fade-up">
         <div class="rounded-2xl overflow-hidden border border-line">
-          <img src="images13.png.png" alt="Aluna da Left Academia se preparando para treinar" class="w-full h-[420px] object-cover" />
+          <img src="https://images.unsplash.com/photo-1646656130703-8f95eed6a79b?auto=format&fit=crop&w=1200&q=80" alt="Estrutura da Left Academia" class="w-full h-[420px] object-cover" />
         </div>
-        <div class="absolute -bottom-6 -left-6 hidden md:block bg-brand-red rounded-2xl px-6 py-4 shadow-2xl">
-          <p class="font-display text-2xl uppercase leading-none">Comece<br/>Hoje!</p>
+        <div class="absolute -bottom-6 -left-6 hidden md:block bg-white text-black rounded-2xl px-6 py-4 shadow-2xl">
+          <p class="font-display text-2xl uppercase leading-none">Bora<br/>Treinar?</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ======================= ESTRUTURA (galeria) ======================= -->
+<section id="estrutura" class="py-20 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 fade-up">
+      <div>
+        <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Por dentro</span>
+        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Cada canto pensado pra treinar</h2>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-6 mt-12">
+      <div class="gallery-card fade-up rounded-2xl overflow-hidden border border-line h-72">
+        <img class="gallery-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1649068610862-ed43a08442cf?auto=format&fit=crop&w=800&q=80" alt="Área de musculação da Left Academia" />
+      </div>
+      <div class="gallery-card fade-up rounded-2xl overflow-hidden border border-line h-72">
+        <img class="gallery-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1585154536515-c766bd2a6cdc?auto=format&fit=crop&w=800&q=80" alt="Área funcional da Left Academia" />
+      </div>
+      <div class="gallery-card fade-up rounded-2xl overflow-hidden border border-line h-72">
+        <img class="gallery-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1532384661798-58b53a4fbe37?auto=format&fit=crop&w=800&q=80" alt="Peso livre na Left Academia" />
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= PLANOS ======================= -->
-<section id="planos" class="py-20 md:py-28 relative noise-overlay">
+<section id="planos" class="py-20 md:py-28 relative noise-overlay bg-surface border-y border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="text-center max-w-2xl mx-auto fade-up">
-      <span class="section-eyebrow text-brand-red text-xs uppercase">// Planos</span>
-      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Escolha seu plano</h2>
-      <p class="text-gray-400 mt-4 font-body">Sem taxa escondida. Cancele quando quiser. Quanto mais tempo, maior o desconto.</p>
+      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Planos</span>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Escolha seu ritmo</h2>
+      <p class="text-gray-400 mt-4 font-body">Sem multa escondida, sem letra miúda. Quanto mais tempo com a gente, menor o valor.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 mt-14">
@@ -260,16 +361,16 @@
       <!-- Mensal -->
       <div class="lift bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
         <h3 class="font-display text-xl uppercase text-gray-300">Mensal</h3>
-        <p class="text-gray-500 text-sm mt-1 font-body">Ideal pra testar o ritmo</p>
+        <p class="text-gray-500 text-sm mt-1 font-body">Pra sentir o ritmo primeiro</p>
         <div class="mt-6 flex items-baseline gap-1">
           <span class="text-gray-400 text-lg font-body">R$</span>
           <span class="font-display text-5xl">109</span>
           <span class="text-gray-500 font-body">/mês</span>
         </div>
         <ul class="mt-8 space-y-3 text-gray-300 text-sm font-body flex-1">
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Acesso musculação e funcional</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>App de treino incluso</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Avaliação física inicial</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Acesso musculação e funcional</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>App de treino incluso</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Avaliação física inicial</li>
           <li class="flex gap-3 text-gray-600"><i data-lucide="x" class="w-4 h-4 mt-0.5"></i>Sem fidelidade</li>
         </ul>
         <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3 rounded-full uppercase text-sm" data-plan="Mensal" data-price="R$ 109/mês">
@@ -277,13 +378,13 @@
         </button>
       </div>
 
-      <!-- Trimestral - destaque -->
+      <!-- Trimestral - destaque (o único cartão onde o vermelho aparece de propósito) -->
       <div class="lift relative bg-card border-2 border-brand-red rounded-2xl p-8 flex flex-col fade-up md:-translate-y-3">
         <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 diag-tag text-white text-[11px] font-bold uppercase tracking-widest">
           Mais escolhido
         </span>
         <h3 class="font-display text-xl uppercase mt-2">Trimestral</h3>
-        <p class="text-gray-400 text-sm mt-1 font-body">Consistência com economia</p>
+        <p class="text-gray-400 text-sm mt-1 font-body">Quem repete, evolui</p>
         <div class="mt-6 flex items-baseline gap-1">
           <span class="text-gray-400 text-lg font-body">R$</span>
           <span class="font-display text-5xl">89</span>
@@ -296,7 +397,7 @@
           <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Reavaliação física mensal</li>
           <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Congelamento de 7 dias</li>
         </ul>
-        <button class="checkout-btn mt-8 btn-primary text-white font-bold py-3 rounded-full uppercase text-sm" data-plan="Trimestral" data-price="R$ 89/mês">
+        <button class="checkout-btn mt-8 btn-primary font-bold py-3 rounded-full uppercase text-sm" data-plan="Trimestral" data-price="R$ 89/mês">
           Assinar Trimestral
         </button>
       </div>
@@ -304,18 +405,18 @@
       <!-- Anual -->
       <div class="lift bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
         <h3 class="font-display text-xl uppercase text-gray-300">Anual</h3>
-        <p class="text-gray-500 text-sm mt-1 font-body">Compromisso total, custo mínimo</p>
+        <p class="text-gray-500 text-sm mt-1 font-body">Compromisso que compensa</p>
         <div class="mt-6 flex items-baseline gap-1">
           <span class="text-gray-400 text-lg font-body">R$</span>
           <span class="font-display text-5xl">69</span>
           <span class="text-gray-500 font-body">/mês</span>
         </div>
-        <p class="text-brand-red text-xs font-bold uppercase mt-1">Economize R$ 480 no total</p>
+        <p class="text-gray-300 text-xs font-bold uppercase mt-1">Economize R$ 480 no total</p>
         <ul class="mt-6 space-y-3 text-gray-300 text-sm font-body flex-1">
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Tudo do plano Trimestral</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Aulas em grupo ilimitadas</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Camiseta oficial Left inclusa</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Congelamento de 30 dias</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Tudo do plano Trimestral</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Aulas em grupo ilimitadas</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Camiseta oficial Left inclusa</li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Congelamento de 30 dias</li>
         </ul>
         <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3 rounded-full uppercase text-sm" data-plan="Anual" data-price="R$ 69/mês">
           Assinar Anual
@@ -327,17 +428,17 @@
     <div id="diaria" class="mt-8 fade-up">
       <div class="bg-card border border-line rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-5">
-          <div class="w-14 h-14 rounded-full bg-brand-red/15 flex items-center justify-center shrink-0">
-            <i data-lucide="ticket" class="w-6 h-6 text-brand-red"></i>
+          <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="ticket" class="w-6 h-6 text-white"></i>
           </div>
           <div>
-            <h3 class="font-display text-xl uppercase">Diária — Passe de 1 dia</h3>
-            <p class="text-gray-400 text-sm font-body mt-1">Pra visitante ou treino avulso, sem compromisso.</p>
+            <h3 class="font-display text-xl uppercase">Diária — Treino avulso</h3>
+            <p class="text-gray-400 text-sm font-body mt-1">Pra quem tá de passagem ou quer testar antes de assinar.</p>
           </div>
         </div>
         <div class="flex items-center gap-6">
           <span class="font-display text-3xl whitespace-nowrap">R$ 25</span>
-          <button class="checkout-btn btn-primary text-white font-bold px-7 py-3 rounded-full uppercase text-sm whitespace-nowrap" data-plan="Diária" data-price="R$ 25">
+          <button class="checkout-btn btn-primary font-bold px-7 py-3 rounded-full uppercase text-sm whitespace-nowrap" data-plan="Diária" data-price="R$ 25">
             Comprar Diária
           </button>
         </div>
@@ -347,20 +448,20 @@
 </section>
 
 <!-- ======================= LOJA ======================= -->
-<section id="loja" class="py-20 md:py-28 bg-surface border-y border-line">
+<section id="loja" class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 fade-up">
       <div>
-        <span class="section-eyebrow text-brand-red text-xs uppercase">// Loja</span>
-        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Produtos oficiais</h2>
+        <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Loja</span>
+        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Vestido pra treinar, <br class="hidden md:block"/>não pra postar</h2>
       </div>
-      <p class="text-gray-400 font-body max-w-sm">Vista a camisa. Peças exclusivas Left Academia, feitas pra treinar pesado.</p>
+      <p class="text-gray-400 font-body max-w-sm">Peças oficiais Left, feitas pra aguentar o treino pesado — e o resto do dia também.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
 
       <div class="lift bg-card border border-line rounded-2xl overflow-hidden flex flex-col fade-up">
-        <div class="h-52 bg-[#0D0D0D] flex items-center justify-center border-b border-line">
+        <div class="h-52 bg-[#0A0A0A] flex items-center justify-center border-b border-line">
           <span class="font-display text-6xl text-white/10">L</span>
         </div>
         <div class="p-5 flex flex-col flex-1">
@@ -376,7 +477,7 @@
       </div>
 
       <div class="lift bg-card border border-line rounded-2xl overflow-hidden flex flex-col fade-up">
-        <div class="h-52 bg-[#0D0D0D] flex items-center justify-center border-b border-line">
+        <div class="h-52 bg-[#0A0A0A] flex items-center justify-center border-b border-line">
           <span class="font-display text-6xl text-white/10">L</span>
         </div>
         <div class="p-5 flex flex-col flex-1">
@@ -392,7 +493,7 @@
       </div>
 
       <div class="lift bg-card border border-line rounded-2xl overflow-hidden flex flex-col fade-up">
-        <div class="h-52 bg-[#0D0D0D] flex items-center justify-center border-b border-line">
+        <div class="h-52 bg-[#0A0A0A] flex items-center justify-center border-b border-line">
           <i data-lucide="cup-soda" class="w-14 h-14 text-white/10"></i>
         </div>
         <div class="p-5 flex flex-col flex-1">
@@ -408,7 +509,7 @@
       </div>
 
       <div class="lift bg-card border border-line rounded-2xl overflow-hidden flex flex-col fade-up">
-        <div class="h-52 bg-[#0D0D0D] flex items-center justify-center border-b border-line">
+        <div class="h-52 bg-[#0A0A0A] flex items-center justify-center border-b border-line">
           <i data-lucide="luggage" class="w-14 h-14 text-white/10"></i>
         </div>
         <div class="p-5 flex flex-col flex-1">
@@ -428,21 +529,21 @@
 </section>
 
 <!-- ======================= APP ======================= -->
-<section id="app" class="py-20 md:py-28">
+<section id="app" class="py-20 md:py-28 bg-surface border-y border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="bg-card border border-line rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-10 items-center overflow-hidden relative fade-up">
-      <div class="absolute -right-24 -top-24 w-72 h-72 bg-brand-red/10 rounded-full blur-3xl"></div>
+      <div class="absolute -right-24 -top-24 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
       <div class="relative">
-        <span class="section-eyebrow text-brand-red text-xs uppercase">// App Left</span>
-        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">Sua evolução <br/>na palma da mão</h2>
+        <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">App Left</span>
+        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">Seu treino, <br/>sempre à mão</h2>
         <p class="text-gray-400 mt-5 font-body leading-relaxed max-w-md">
-          Acompanhe treinos, libere a catraca pelo celular e veja sua evolução em gráficos simples.
-          Tudo isso direto no app oficial da Left Academia.
+          Ficha sempre atualizada, catraca liberada por QR Code e sua evolução em gráfico simples.
+          Chega de treino de papel.
         </p>
         <ul class="mt-6 space-y-3 text-gray-300 text-sm font-body">
-          <li class="flex gap-3"><i data-lucide="dumbbell" class="w-4 h-4 text-brand-red mt-0.5"></i>Ficha de treino sempre atualizada</li>
-          <li class="flex gap-3"><i data-lucide="scan-line" class="w-4 h-4 text-brand-red mt-0.5"></i>Acesso à catraca por QR Code</li>
-          <li class="flex gap-3"><i data-lucide="trending-up" class="w-4 h-4 text-brand-red mt-0.5"></i>Evolução física em gráficos</li>
+          <li class="flex gap-3"><i data-lucide="dumbbell" class="w-4 h-4 text-white mt-0.5"></i>Ficha de treino sempre atualizada</li>
+          <li class="flex gap-3"><i data-lucide="scan-line" class="w-4 h-4 text-white mt-0.5"></i>Acesso à catraca por QR Code</li>
+          <li class="flex gap-3"><i data-lucide="trending-up" class="w-4 h-4 text-white mt-0.5"></i>Evolução física em gráficos</li>
         </ul>
         <div class="flex flex-wrap gap-4 mt-8">
           <a href="#" class="flex items-center gap-3 bg-black border border-line rounded-xl px-5 py-3 hover:border-white transition-colors">
@@ -464,12 +565,12 @@
 
       <div class="relative flex justify-center">
         <div class="w-56 md:w-64 aspect-[9/18] rounded-[2.2rem] border-4 border-line bg-black p-3 shadow-2xl">
-          <div class="w-full h-full rounded-[1.6rem] bg-gradient-to-b from-[#1B1B1B] to-black p-5 flex flex-col">
+          <div class="w-full h-full rounded-[1.6rem] bg-gradient-to-b from-[#1A1A1A] to-black p-5 flex flex-col">
             <div class="flex justify-between items-center">
               <span class="text-[10px] text-gray-500">09:41</span>
               <i data-lucide="wifi" class="w-3 h-3 text-gray-500"></i>
             </div>
-            <p class="font-display text-sm uppercase mt-6 text-brand-red">Treino de hoje</p>
+            <p class="font-display text-sm uppercase mt-6 text-white/60">Treino de hoje</p>
             <p class="font-display text-xl uppercase leading-tight mt-1">Peito & <br/>Tríceps</p>
             <div class="mt-6 space-y-2">
               <div class="h-2 rounded-full bg-white/10 w-full"></div>
@@ -477,8 +578,8 @@
               <div class="h-2 rounded-full bg-brand-red w-3/5"></div>
             </div>
             <div class="flex-1"></div>
-            <div class="rounded-xl bg-brand-red/15 border border-brand-red/40 p-3 flex items-center gap-2">
-              <i data-lucide="scan-line" class="w-4 h-4 text-brand-red"></i>
+            <div class="rounded-xl bg-white/10 border border-white/20 p-3 flex items-center gap-2">
+              <i data-lucide="scan-line" class="w-4 h-4 text-white"></i>
               <span class="text-[11px] font-bold">Liberar catraca</span>
             </div>
           </div>
@@ -489,11 +590,11 @@
 </section>
 
 <!-- ======================= CONTATO / LOCALIZAÇÃO ======================= -->
-<section id="contato" class="py-20 md:py-28 bg-surface border-t border-line">
+<section id="contato" class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="text-center max-w-2xl mx-auto fade-up">
-      <span class="section-eyebrow text-brand-red text-xs uppercase">// Onde treinar</span>
-      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Venha treinar com a gente</h2>
+      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Onde treinar</span>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Sem desculpa de distância</h2>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 mt-12">
@@ -509,21 +610,21 @@
 
       <div class="fade-up flex flex-col gap-5">
         <div class="bg-card border border-line rounded-2xl p-6 flex items-start gap-4">
-          <div class="w-11 h-11 rounded-full bg-brand-red/15 flex items-center justify-center shrink-0">
-            <i data-lucide="map-pin" class="w-5 h-5 text-brand-red"></i>
+          <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
           </div>
           <div>
             <p class="font-bold font-body">Endereço</p>
             <p class="text-gray-400 text-sm mt-1 font-body">Av. Guarulhos, 1773 — Vila Augusta, Guarulhos - SP, 07025-000</p>
-            <a href="https://www.google.com/maps?q=Av.+Guarulhos,+1773+-+Vila+Augusta,+Guarulhos+-+SP,+07025-000" target="_blank" class="text-brand-red text-sm font-bold inline-flex items-center gap-1.5 mt-2 hover:underline">
+            <a href="https://www.google.com/maps?q=Av.+Guarulhos,+1773+-+Vila+Augusta,+Guarulhos+-+SP,+07025-000" target="_blank" class="text-white text-sm font-bold inline-flex items-center gap-1.5 mt-2 hover:underline">
               Traçar rota <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
         <div class="bg-card border border-line rounded-2xl p-6 flex items-start gap-4">
-          <div class="w-11 h-11 rounded-full bg-brand-red/15 flex items-center justify-center shrink-0">
-            <i data-lucide="clock" class="w-5 h-5 text-brand-red"></i>
+          <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="clock" class="w-5 h-5 text-white"></i>
           </div>
           <div>
             <p class="font-bold font-body">Horário de funcionamento</p>
@@ -535,18 +636,18 @@
         </div>
 
         <div class="grid grid-cols-2 gap-5">
-          <a href="https://wa.me/5511932004982" target="_blank" class="bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-brand-red transition-colors">
-            <div class="w-11 h-11 rounded-full bg-brand-red/15 flex items-center justify-center">
-              <i data-lucide="message-circle" class="w-5 h-5 text-brand-red"></i>
+          <a href="https://wa.me/5511932004982" target="_blank" class="bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-white transition-colors">
+            <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center">
+              <i data-lucide="message-circle" class="w-5 h-5 text-white"></i>
             </div>
             <div>
               <p class="font-bold font-body text-sm">WhatsApp</p>
               <p class="text-gray-400 text-xs mt-1 font-body">(11) 93200-4982</p>
             </div>
           </a>
-          <a href="https://www.instagram.com/academialeft/" target="_blank" class="bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-brand-red transition-colors">
-            <div class="w-11 h-11 rounded-full bg-brand-red/15 flex items-center justify-center">
-              <i data-lucide="instagram" class="w-5 h-5 text-brand-red"></i>
+          <a href="https://www.instagram.com/academialeft/" target="_blank" class="bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-white transition-colors">
+            <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center">
+              <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
             </div>
             <div>
               <p class="font-bold font-body text-sm">Instagram</p>
@@ -564,7 +665,10 @@
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-4 gap-10">
       <div class="col-span-2 md:col-span-1">
-        <img src="images/Logo_LEFT.png" alt="Left Academia" class="h-9 w-auto mb-4" />
+        <div class="logo-mark mb-4">
+          <span class="l1 text-3xl uppercase text-white block">LEFT</span>
+          <span class="l2 text-[10px] uppercase block -mt-1">Academia</span>
+        </div>
         <p class="text-gray-500 text-sm font-body leading-relaxed">
           Av. Guarulhos, 1773 — Vila Augusta, Guarulhos - SP, 07025-000
         </p>
@@ -634,6 +738,13 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
+  // Subtle parallax on hero photo
+  const heroImg = document.getElementById('heroImg');
+  window.addEventListener('scroll', () => {
+    const y = Math.min(window.scrollY, 800);
+    heroImg.style.transform = `translateY(${y * 0.15}px) scale(${1.05 + y * 0.00015})`;
+  }, { passive: true });
+
   // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -654,6 +765,27 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Count-up stats when the "Sobre" numbers scroll into view
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 900;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        el.textContent = Math.floor(progress * target);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(el => counterObserver.observe(el));
 
   // Cart logic (demo only — no real checkout, ready to wire to a payment provider)
   let cartCount = 0;
@@ -693,6 +825,13 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+<!--
+  Créditos das fotos (licença gratuita Unsplash, uso comercial liberado):
+  Hero: Alora Griffiths · Sobre: Ambitious Studio | Rick Barrett
+  Galeria "Estrutura": Andrew Kayani, Karthik Thoguluva, Alora Griffiths
+  Troque por fotos reais da Left quando tiver — é só substituir o link em cada tag <img>.
+-->
 
 </body>
 </html>
