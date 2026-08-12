@@ -130,17 +130,29 @@
 
   input[type="radio"].plan-toggle:checked + label { color:#fff; }
 
-  /* Signature motion: "segunda" gets struck through on load — resultado não espera segunda */
-  .strike-word { position:relative; white-space:nowrap; }
-  .strike-word::after {
-    content:'';
-    position:absolute; left:-2%; right:-2%; top:52%; height:3px;
-    background:#F5F5F5;
-    width:0;
-    animation: drawLine .55s ease forwards;
-    animation-delay: 1.15s;
+  /* Hero motion: Ken Burns zoom + crossfade between 3 desaturated photos */
+  .hero-slide {
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:top;
+    filter: grayscale(1) contrast(1.1) brightness(0.92);
+    opacity:0;
+    animation: heroFadeOpacity 18s infinite, heroKenBurns 18s infinite;
+    animation-timing-function: ease-in-out;
   }
-  @keyframes drawLine { to { width:104%; left:-2%; } }
+  .hero-slide.s1 { animation-delay: 0s; }
+  .hero-slide.s2 { animation-delay: -6s; }
+  .hero-slide.s3 { animation-delay: -12s; }
+  @keyframes heroFadeOpacity {
+    0%, 100% { opacity:0; }
+    4% { opacity:1; }
+    29% { opacity:1; }
+    33% { opacity:0; }
+  }
+  @keyframes heroKenBurns {
+    0% { transform: scale(1); }
+    33% { transform: scale(1.13); }
+    100% { transform: scale(1.13); }
+  }
 
   /* Marquee ticker band */
   .marquee-track {
@@ -164,7 +176,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .marquee-track { animation: none; }
-    .strike-word::after { animation: none; width:104%; }
+    .hero-slide { animation: none; opacity:1; }
+    .hero-slide.s2, .hero-slide.s3 { display:none; }
     .fade-up { transition: none; }
   }
 </style>
@@ -221,16 +234,20 @@
 
 <!-- ======================= HERO ======================= -->
 <section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden pt-28 pb-0 md:pb-0">
-  <!-- background image: real free-license photo, swap for your own studio shot whenever you're ready -->
+  <!-- background: 3 real free-license photos in grayscale, Ken Burns zoom + crossfade. Swap the src links for your own studio shots whenever you're ready -->
   <div class="absolute inset-0">
-    <img id="heroImg" src="https://images.unsplash.com/photo-1532384555668-bc0c32a17ffd?auto=format&fit=crop&w=1600&q=80" alt="Aluno da Left Academia treinando com peso livre" class="w-full h-full object-cover object-top opacity-90 scale-105" />
+    <div id="heroSlides" class="absolute inset-0">
+      <img class="hero-slide s1" src="https://images.unsplash.com/photo-1532384555668-bc0c32a17ffd?auto=format&fit=crop&w=1600&q=80" alt="Aluno da Left Academia treinando com peso livre" />
+      <img class="hero-slide s2" src="https://images.unsplash.com/photo-1585154536515-c766bd2a6cdc?auto=format&fit=crop&w=1600&q=80" alt="Aluno da Left Academia em treino funcional" />
+      <img class="hero-slide s3" src="https://images.unsplash.com/photo-1649068610862-ed43a08442cf?auto=format&fit=crop&w=1600&q=80" alt="Estrutura de musculação da Left Academia" />
+    </div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 md:via-[#0A0A0A]/40 to-[#0A0A0A]/60"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/10 to-transparent"></div>
   </div>
 
-  <!-- ghost text background: the crossed-out "SEGUNDA" motif repeated large -->
+  <!-- ghost text background: giant watermark, reinforces the "no excuses" challenge -->
   <div class="absolute inset-x-0 bottom-0 select-none pointer-events-none overflow-hidden">
-    <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2">SEGUNDA</p>
+    <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2">DESCULPA</p>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full pb-14 md:pb-0">
@@ -240,12 +257,12 @@
       </span>
 
       <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] uppercase mt-5">
-        Resultado não espera <span class="strike-word">segunda</span> <span class="text-brand-red">hoje.</span>
+        Se fosse <span class="text-brand-red">fácil</span>, todo mundo já tinha.
       </h1>
 
       <p class="mt-6 text-gray-300 text-base md:text-lg font-body max-w-md">
-        Chega de adiar. Estrutura completa, professor por perto em qualquer horário
-        e um plano que acompanha o seu ritmo — não o contrário.
+        Aqui separa quem fala de quem treina. Estrutura completa, professor por perto
+        e resultado pra quem aparece de verdade.
       </p>
 
       <div class="mt-9 flex flex-wrap gap-4">
@@ -264,18 +281,18 @@
 <div class="border-y border-line bg-surface py-4 overflow-hidden">
   <div class="marquee-track font-display text-lg md:text-xl uppercase text-white/25 tracking-wide">
     <span class="flex items-center gap-6 pr-6">
-      <span>Sem atalho</span><span class="text-brand-red">✦</span>
-      <span>Só consistência</span><span class="text-brand-red">✦</span>
-      <span>Cada treino conta</span><span class="text-brand-red">✦</span>
-      <span>Seu ritmo, seu resultado</span><span class="text-brand-red">✦</span>
-      <span>Treino não espera segunda</span><span class="text-brand-red">✦</span>
+      <span>Sem desculpa</span><span class="text-brand-red">✦</span>
+      <span>Só resultado</span><span class="text-brand-red">✦</span>
+      <span>Se fosse fácil, todo mundo fazia</span><span class="text-brand-red">✦</span>
+      <span>O espelho não mente</span><span class="text-brand-red">✦</span>
+      <span>Aparece ou desiste</span><span class="text-brand-red">✦</span>
     </span>
     <span class="flex items-center gap-6 pr-6" aria-hidden="true">
-      <span>Sem atalho</span><span class="text-brand-red">✦</span>
-      <span>Só consistência</span><span class="text-brand-red">✦</span>
-      <span>Cada treino conta</span><span class="text-brand-red">✦</span>
-      <span>Seu ritmo, seu resultado</span><span class="text-brand-red">✦</span>
-      <span>Treino não espera segunda</span><span class="text-brand-red">✦</span>
+      <span>Sem desculpa</span><span class="text-brand-red">✦</span>
+      <span>Só resultado</span><span class="text-brand-red">✦</span>
+      <span>Se fosse fácil, todo mundo fazia</span><span class="text-brand-red">✦</span>
+      <span>O espelho não mente</span><span class="text-brand-red">✦</span>
+      <span>Aparece ou desiste</span><span class="text-brand-red">✦</span>
     </span>
   </div>
 </div>
@@ -738,11 +755,11 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // Subtle parallax on hero photo
-  const heroImg = document.getElementById('heroImg');
+  // Subtle parallax on the hero slides wrapper (each slide keeps its own Ken Burns zoom)
+  const heroSlides = document.getElementById('heroSlides');
   window.addEventListener('scroll', () => {
     const y = Math.min(window.scrollY, 800);
-    heroImg.style.transform = `translateY(${y * 0.15}px) scale(${1.05 + y * 0.00015})`;
+    heroSlides.style.transform = `translateY(${y * 0.15}px)`;
   }, { passive: true });
 
   // Mobile menu
@@ -828,7 +845,8 @@
 
 <!--
   Créditos das fotos (licença gratuita Unsplash, uso comercial liberado):
-  Hero: Alora Griffiths · Sobre: Ambitious Studio | Rick Barrett
+  Hero (crossfade): Alora Griffiths, Karthik Thoguluva, Andrew Kayani
+  Sobre: Ambitious Studio | Rick Barrett
   Galeria "Estrutura": Andrew Kayani, Karthik Thoguluva, Alora Griffiths
   Troque por fotos reais da Left quando tiver — é só substituir o link em cada tag <img>.
 -->
