@@ -214,7 +214,6 @@
   .photo-mono { filter: grayscale(1) contrast(1.12) brightness(0.93); }
   .photo-mono.lift:hover img,
   .photo-mono:hover { filter: grayscale(1) contrast(1.18) brightness(0.98); }
-  /* the one intentional color photo in the whole site — red kettlebells, a deliberate detail */
   .photo-accent { filter: saturate(1.05) contrast(1.05) brightness(0.92); }
 
   /* Marquee ticker band — two rows, opposite directions, chrome + ghost */
@@ -310,7 +309,6 @@
 
 <!-- ======================= HERO ======================= -->
 <section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden pt-28 pb-0 md:pb-0">
-  <!-- background: 3 real gym-equipment photos (Unsplash, free license), grayscale/metallic grade, Ken Burns zoom + crossfade -->
   <div class="absolute inset-0">
     <div id="heroSlides" class="absolute inset-0">
       <img class="hero-slide s1" src="https://images.unsplash.com/photo-1646492169621-d8da8016354a?auto=format&fit=crop&w=1800&q=80" alt="Barbell em treino de musculação na Left Academia" />
@@ -321,7 +319,6 @@
     <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0B] via-[#0A0A0B]/15 to-transparent"></div>
   </div>
 
-  <!-- ghost text background: giant metallic watermark, reinforces the "no excuses" challenge -->
   <div class="absolute inset-x-0 bottom-0 select-none pointer-events-none overflow-hidden">
     <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2">DESCULPA</p>
   </div>
@@ -376,14 +373,14 @@
     <span class="flex items-center gap-6 pr-6">
       <span>Guarulhos · Vila Augusta</span><span>·</span>
       <span>Aula experimental grátis</span><span>·</span>
-      <span>Aberto todos os dias</span><span>·</span>
-      <span>Musculação · Funcional · App</span><span>·</span>
+      <span>Segunda a Sábado</span><span>·</span>
+      <span>Musculação · Personalizado · App</span><span>·</span>
     </span>
     <span class="flex items-center gap-6 pr-6" aria-hidden="true">
       <span>Guarulhos · Vila Augusta</span><span>·</span>
       <span>Aula experimental grátis</span><span>·</span>
-      <span>Aberto todos os dias</span><span>·</span>
-      <span>Musculação · Funcional · App</span><span>·</span>
+      <span>Segunda a Sábado</span><span>·</span>
+      <span>Musculação · Personalizado · App</span><span>·</span>
     </span>
   </div>
 </div>
@@ -401,9 +398,9 @@
         </p>
         <div class="grid grid-cols-3 gap-6 mt-10">
           <div>
-            <p class="font-display text-3xl md:text-4xl text-white counter" data-target="7">0</p>
+            <p class="font-display text-3xl md:text-4xl text-white counter" data-target="6">0</p>
             <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
-            <p class="text-gray-400 text-xs uppercase tracking-wide">Dias por semana</p>
+            <p class="text-gray-400 text-xs uppercase tracking-wide">Dias de treino/semana</p>
           </div>
           <div>
             <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="30">0</span>+</p>
@@ -413,7 +410,7 @@
           <div>
             <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="22">0</span>h</p>
             <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
-            <p class="text-gray-400 text-xs uppercase tracking-wide">Fechamento diário</p>
+            <p class="text-gray-400 text-xs uppercase tracking-wide">Fechamento Seg a Sex</p>
           </div>
         </div>
       </div>
@@ -458,77 +455,84 @@
 <section id="planos" class="py-20 md:py-28 relative bg-surface border-y border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="text-center max-w-2xl mx-auto fade-up">
-      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Planos</span>
-      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Escolha seu ritmo</h2>
-      <p class="text-gray-400 mt-4 font-body">Sem multa escondida, sem letra miúda. Quanto mais tempo com a gente, menor o valor.</p>
+      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Conheça Nossos</span>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Planos</h2>
+      <p class="text-gray-400 mt-4 font-body">Treino personalizado, matrícula grátis e acesso completo para a sua melhor evolução.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-14">
+    <div class="grid md:grid-cols-3 gap-6 mt-14 items-stretch">
 
       <!-- Mensal -->
       <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
-        <h3 class="font-display text-xl uppercase text-gray-300">Mensal</h3>
-        <p class="text-gray-500 text-sm mt-1 font-body">Pra sentir o ritmo primeiro</p>
-        <div class="mt-6 flex items-baseline gap-1">
-          <span class="text-gray-400 text-lg font-body">R$</span>
-          <span class="font-display text-5xl">109</span>
-          <span class="text-gray-500 font-body">/mês</span>
+        <h3 class="font-display text-2xl uppercase text-gray-200">Mensal</h3>
+        <p class="text-gray-500 text-sm mt-1 font-body">Sem fidelidade ou multa</p>
+        <div class="mt-6">
+          <span class="text-gray-400 text-sm block font-body">Mensalidade</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-4xl sm:text-5xl text-white">R$ 160,00</span>
+          </div>
         </div>
-        <ul class="mt-8 space-y-3 text-gray-300 text-sm font-body flex-1">
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Acesso musculação e funcional</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>App de treino incluso</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Avaliação física inicial</li>
-          <li class="flex gap-3 text-gray-600"><i data-lucide="x" class="w-4 h-4 mt-0.5"></i>Sem fidelidade</li>
+        <ul class="mt-8 space-y-3.5 text-gray-300 text-sm font-body flex-1">
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Acesso livre todos os dias</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Sem fidelidade</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Sem multa por cancelamento</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Matrícula grátis</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Treino personalizado</span></li>
         </ul>
-        <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3 rounded-full uppercase text-sm" data-plan="Mensal" data-price="R$ 109/mês">
+        <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3.5 rounded-full uppercase text-sm w-full" data-plan="Mensal" data-price="R$ 160,00">
           Assinar Mensal
         </button>
       </div>
 
-      <!-- Trimestral - destaque (o único cartão onde o vermelho aparece de propósito) -->
-      <div class="lift relative bg-card border-2 border-brand-red rounded-2xl p-8 flex flex-col fade-up md:-translate-y-3">
-        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 tag-red text-white text-[11px] font-bold uppercase tracking-widest">
-          Mais escolhido
+      <!-- Anual - Destaque Central -->
+      <div class="lift relative bg-card border-2 border-brand-red rounded-2xl p-8 flex flex-col fade-up md:-translate-y-3 shadow-2xl">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 tag-red text-white text-[11px] font-bold uppercase tracking-widest whitespace-nowrap">
+          Plano Recomendado
         </span>
-        <h3 class="font-display text-xl uppercase mt-2">Trimestral</h3>
-        <p class="text-gray-400 text-sm mt-1 font-body">Quem repete, evolui</p>
-        <div class="mt-6 flex items-baseline gap-1">
-          <span class="text-gray-400 text-lg font-body">R$</span>
-          <span class="font-display text-5xl">89</span>
-          <span class="text-gray-500 font-body">/mês</span>
+        <h3 class="font-display text-2xl uppercase mt-2 text-white">Anual</h3>
+        <p class="text-gray-400 text-sm mt-1 font-body">O melhor custo-benefício</p>
+        <div class="mt-6">
+          <span class="text-brand-red text-xs font-bold uppercase block tracking-wider">12x de</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-4xl sm:text-5xl text-white">R$ 120,00</span>
+          </div>
         </div>
-        <p class="text-brand-red text-xs font-bold uppercase mt-1">Economize R$ 60 no total</p>
-        <ul class="mt-6 space-y-3 text-gray-300 text-sm font-body flex-1">
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Tudo do plano Mensal</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>1 aula de funcional em grupo/semana</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Reavaliação física mensal</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-red mt-0.5"></i>Congelamento de 7 dias</li>
+        <ul class="mt-8 space-y-3.5 text-gray-300 text-sm font-body flex-1">
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Acesso livre todos os dias</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Matrícula grátis</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Treino personalizado</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Pagamento por débito recorrente ou crédito</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Plano com contrato de fidelidade</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Primeira avaliação física grátis</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Brinde especial</span></li>
         </ul>
-        <button class="checkout-btn mt-8 btn-primary font-bold py-3 rounded-full uppercase text-sm" data-plan="Trimestral" data-price="R$ 89/mês">
+        <button class="checkout-btn mt-8 btn-primary font-bold py-3.5 rounded-full uppercase text-sm w-full" data-plan="Anual" data-price="12x de R$ 120,00">
+          Assinar Anual
+        </button>
+      </div>
+
+      <!-- Trimestral -->
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
+        <h3 class="font-display text-2xl uppercase text-gray-200">Trimestral</h3>
+        <p class="text-gray-500 text-sm mt-1 font-body">Compromisso em médio prazo</p>
+        <div class="mt-6">
+          <span class="text-gray-400 text-sm block font-body">3x de</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-4xl sm:text-5xl text-white">R$ 140,00</span>
+          </div>
+        </div>
+        <ul class="mt-8 space-y-3.5 text-gray-300 text-sm font-body flex-1">
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Acesso livre todos os dias</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Matrícula grátis</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Treino personalizado</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Pagamento por débito recorrente ou crédito</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Plano com contrato de fidelidade</span></li>
+        </ul>
+        <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3.5 rounded-full uppercase text-sm w-full" data-plan="Trimestral" data-price="3x de R$ 140,00">
           Assinar Trimestral
         </button>
       </div>
 
-      <!-- Anual -->
-      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
-        <h3 class="font-display text-xl uppercase text-gray-300">Anual</h3>
-        <p class="text-gray-500 text-sm mt-1 font-body">Compromisso que compensa</p>
-        <div class="mt-6 flex items-baseline gap-1">
-          <span class="text-gray-400 text-lg font-body">R$</span>
-          <span class="font-display text-5xl">69</span>
-          <span class="text-gray-500 font-body">/mês</span>
-        </div>
-        <p class="text-gray-300 text-xs font-bold uppercase mt-1">Economize R$ 480 no total</p>
-        <ul class="mt-6 space-y-3 text-gray-300 text-sm font-body flex-1">
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Tudo do plano Trimestral</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Aulas em grupo ilimitadas</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Camiseta oficial Left inclusa</li>
-          <li class="flex gap-3"><i data-lucide="check" class="w-4 h-4 text-white mt-0.5"></i>Congelamento de 30 dias</li>
-        </ul>
-        <button class="checkout-btn mt-8 btn-outline text-white font-bold py-3 rounded-full uppercase text-sm" data-plan="Anual" data-price="R$ 69/mês">
-          Assinar Anual
-        </button>
-      </div>
     </div>
 
     <!-- Diária -->
@@ -735,10 +739,9 @@
           </div>
           <div>
             <p class="font-bold font-body">Horário de funcionamento</p>
-            <p class="text-gray-400 text-sm mt-1 font-body">Aberto diariamente · Fecha às 22:00</p>
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-green-400 mt-2">
-              <span class="w-2 h-2 rounded-full bg-green-400"></span> Aberto agora
-            </span>
+            <p class="text-gray-400 text-sm mt-1 font-body">Segunda a Sexta: 06:00 às 22:00</p>
+            <p class="text-gray-400 text-sm font-body">Sábados e Feriados: 08:00 às 13:00</p>
+            <p class="text-gray-400 text-sm font-body">Domingo: <span class="text-brand-red font-semibold">FECHADO</span></p>
           </div>
         </div>
 
@@ -819,10 +822,12 @@
       </div>
 
       <div>
-        <p class="font-bold font-body text-sm uppercase tracking-wide mb-4">Contato</p>
+        <p class="font-bold font-body text-sm uppercase tracking-wide mb-4">Contato &amp; Horário</p>
         <ul class="space-y-2.5 text-gray-500 text-sm font-body">
           <li>(11) 93200-4982</li>
-          <li>Aberto diariamente até 22:00</li>
+          <li>Seg a Sex: 06:00 às 22:00</li>
+          <li>Sáb e Feriados: 08:00 às 13:00</li>
+          <li>Domingo: Fechado</li>
         </ul>
       </div>
     </div>
@@ -855,7 +860,7 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // Subtle parallax on the hero slides wrapper (each slide keeps its own Ken Burns zoom)
+  // Subtle parallax on the hero slides wrapper
   const heroSlides = document.getElementById('heroSlides');
   window.addEventListener('scroll', () => {
     const y = Math.min(window.scrollY, 800);
@@ -904,7 +909,7 @@
   }, { threshold: 0.4 });
   counters.forEach(el => counterObserver.observe(el));
 
-  // Cart logic (demo only — no real checkout, ready to wire to a payment provider)
+  // Cart logic
   let cartCount = 0;
   const cartCountEl = document.getElementById('cartCount');
   const toast = document.getElementById('toast');
