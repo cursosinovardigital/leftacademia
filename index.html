@@ -58,7 +58,6 @@
   }
   .font-display { font-family:'Anton', sans-serif; letter-spacing:0.01em; }
 
-  /* Chrome / brushed-metal text treatment — used for the logo + marquee lead row */
   .chrome-text {
     background: linear-gradient(180deg, #FFFFFF 0%, #E4E5E7 30%, #9A9DA3 50%, #E4E5E7 70%, #FFFFFF 100%);
     -webkit-background-clip: text;
@@ -66,7 +65,6 @@
     color: transparent;
   }
 
-  /* Ghost outline text - signature element, echoes the "no more waiting for Monday" idea */
   .ghost-text {
     -webkit-text-stroke: 1.5px rgba(201,203,207,0.09);
     color: transparent;
@@ -76,7 +74,6 @@
     .ghost-text { -webkit-text-stroke: 2px rgba(201,203,207,0.08); }
   }
 
-  /* Steel badge — default tag treatment, metallic + neutral */
   .tag-steel {
     display:inline-flex;
     align-items:center;
@@ -87,7 +84,6 @@
     clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
   }
 
-  /* Red badge — reserved for the ONE deliberate accent moment (highlighted plan) */
   .tag-red {
     display:inline-flex;
     align-items:center;
@@ -97,7 +93,6 @@
     clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
   }
 
-  /* red dot marker used before section eyebrows — a repeated tiny detail, not a color block */
   .eyebrow-dot::before {
     content:'';
     display:inline-block;
@@ -113,14 +108,11 @@
   }
 
   ::selection { background:#F5F5F5; color:#0A0A0A; }
-
   .scrollbar-none::-webkit-scrollbar{ display:none; }
 
-  /* card hover lift — monochrome, red reserved for the highlighted plan only */
   .lift { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
   .lift:hover { transform: translateY(-6px); border-color:#5c5d61; box-shadow: 0 24px 48px -20px rgba(0,0,0,0.65); }
 
-  /* subtle brushed-metal border used on cards for a premium edge */
   .steel-edge {
     position:relative;
   }
@@ -136,7 +128,6 @@
     pointer-events:none;
   }
 
-  /* Primary CTA — white/black matte with a metallic sweep on hover */
   .btn-primary {
     position:relative;
     overflow:hidden;
@@ -184,9 +175,6 @@
   }
   .toast.show { transform: translateY(0); opacity:1; }
 
-  input[type="radio"].plan-toggle:checked + label { color:#fff; }
-
-  /* Hero motion: Ken Burns zoom + crossfade between 3 real gym photos, unified monochrome/metallic grade */
   .hero-slide {
     position:absolute; inset:0; width:100%; height:100%;
     object-fit:cover; object-position:center;
@@ -210,13 +198,11 @@
     100% { transform: scale(1.13); }
   }
 
-  /* Photo grade applied to all supporting gym photography for brand cohesion */
   .photo-mono { filter: grayscale(1) contrast(1.12) brightness(0.93); }
   .photo-mono.lift:hover img,
   .photo-mono:hover { filter: grayscale(1) contrast(1.18) brightness(0.98); }
   .photo-accent { filter: saturate(1.05) contrast(1.05) brightness(0.92); }
 
-  /* Marquee ticker band — two rows, opposite directions, chrome + ghost */
   .marquee-track {
     display:flex;
     width:max-content;
@@ -235,7 +221,6 @@
     to { transform: translateX(0); }
   }
 
-  /* gallery image treatment for the estrutura strip */
   .gallery-img { transition: transform .6s ease, filter .6s ease; }
   .gallery-card:hover .gallery-img { transform: scale(1.06); }
 
@@ -273,6 +258,7 @@
     <nav class="hidden lg:flex items-center gap-9 font-body font-medium text-sm text-gray-200">
       <a href="#inicio" class="nav-link">Início</a>
       <a href="#sobre" class="nav-link">Sobre</a>
+      <a href="#depoimentos" class="nav-link">Depoimentos</a>
       <a href="#planos" class="nav-link">Planos</a>
       <a href="#loja" class="nav-link">Loja</a>
       <a href="#app" class="nav-link">App</a>
@@ -298,6 +284,7 @@
     <nav class="flex flex-col px-6 py-5 gap-4 font-body font-medium text-gray-200">
       <a href="#inicio" class="mobile-link py-1">Início</a>
       <a href="#sobre" class="mobile-link py-1">Sobre</a>
+      <a href="#depoimentos" class="mobile-link py-1">Depoimentos</a>
       <a href="#planos" class="mobile-link py-1">Planos</a>
       <a href="#loja" class="mobile-link py-1">Loja</a>
       <a href="#app" class="mobile-link py-1">App</a>
@@ -324,13 +311,15 @@
   </div>
 
   <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full pb-14 md:pb-0">
-    <div class="max-w-xl fade-up">
+    <div class="max-w-2xl fade-up">
       <span class="tag-steel text-white text-xs font-bold uppercase tracking-widest mb-6">
         <i data-lucide="flame" class="w-3.5 h-3.5 text-brand-red"></i> GUARULHOS • VILA AUGUSTA
       </span>
 
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] uppercase mt-5">
-        SEU TREINO.<br/>SEU RITMO. <span class="text-brand-red">SEU RESULTADO.</span>
+      <!-- Ajuste no título conforme o primeiro áudio -->
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1] uppercase mt-5">
+        SEU TREINO. SEU RITMO.<br/>
+        <span class="text-brand-red">SEU RESULTADO.</span>
       </h1>
 
       <p class="mt-6 text-gray-300 text-base md:text-lg font-body max-w-md">
@@ -385,7 +374,7 @@
   </div>
 </div>
 
-<!-- ======================= SOBRE / TRUST BAR ======================= -->
+<!-- ======================= SOBRE (SEM OS NÚMEROS) ======================= -->
 <section id="sobre" class="relative bg-surface border-b border-line py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -393,36 +382,114 @@
         <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Sobre a Left</span>
         <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">MENOS PROMESSA. <br class="hidden md:block"/>MAIS CONSTÂNCIA.</h2>
         <p class="text-gray-300 font-semibold mt-3 text-sm uppercase tracking-wide">Desde 2010 transformando vidas e cuidando de pessoas.</p>
-        <p class="text-gray-400 mt-4 font-body leading-relaxed">
-          Aqui não tem fórmula mágica, você precisa aparecer, treinar e evoluir. A LEFT oferece estrutura, variedade de treinamentos e professores presentes para acompanhar sua jornada.
+        <p class="text-gray-400 mt-4 font-body leading-relaxed text-base">
+          Aqui não tem fórmula mágica, você precisa aparecer, treinar e evoluir. A LEFT oferece estrutura de ponta, variedade completa de treinamentos e professores presentes na sala para orientar cada movimento da sua jornada.
         </p>
-        <div class="grid grid-cols-3 gap-6 mt-10">
-          <div>
-            <p class="font-display text-3xl md:text-4xl text-white counter" data-target="6">0</p>
-            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
-            <p class="text-gray-400 text-xs uppercase tracking-wide">Dias de treino/semana</p>
-          </div>
-          <div>
-            <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="30">0</span>+</p>
-            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
-            <p class="text-gray-400 text-xs uppercase tracking-wide">Aparelhos</p>
-          </div>
-          <div>
-            <p class="font-display text-3xl md:text-4xl text-white"><span class="counter" data-target="22">0</span>h</p>
-            <div class="w-6 h-[3px] bg-brand-red mt-2 mb-1"></div>
-            <p class="text-gray-400 text-xs uppercase tracking-wide">Fechamento Seg a Sex</p>
-          </div>
+        <div class="mt-8 flex items-center gap-4">
+          <a href="#contato" class="btn-primary font-bold px-6 py-3 rounded-full uppercase text-xs tracking-wider inline-flex items-center gap-2">
+            Venha conhecer o espaço <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
         </div>
       </div>
 
       <div class="relative fade-up">
         <div class="steel-edge rounded-2xl overflow-hidden border border-line">
-          <img src="https://images.unsplash.com/photo-1603077492579-39ff927823db?auto=format&fit=crop&w=1200&q=80" alt="Estrutura de musculação da Left Academia" class="photo-mono w-full h-[420px] object-cover" />
+          <img src="https://images.unsplash.com/photo-1603077492579-39ff927823db?auto=format&fit=crop&w=1200&q=80" alt="Estrutura de musculação da Left Academia" class="photo-mono w-full h-[380px] object-cover" />
         </div>
         <div class="absolute -bottom-6 -left-6 hidden md:block bg-white text-black rounded-2xl px-6 py-4 shadow-2xl">
           <p class="font-display text-2xl uppercase leading-none">Bora<br/>Treinar?</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DEPOIMENTOS DE ALUNOS ======================= -->
+<section id="depoimentos" class="py-20 md:py-24 border-b border-line bg-base">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto fade-up">
+      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Depoimentos</span>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Quem treina na Left, recomenda</h2>
+      <p class="text-gray-400 mt-4 font-body">Veja o que os nossos alunos falam sobre o acompanhamento, o clima e os resultados.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+      
+      <!-- Depoimento 1 -->
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between fade-up">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "A melhor academia da região! Os professores realmente corrigem a postura e montam treinos de verdade. Não é aquela academia cheia onde você fica largado."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">
+            RF
+          </div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Rafael Freitas</h4>
+            <span class="text-xs text-gray-500 font-body">Aluno há 2 anos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between fade-up">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "Ambiente limpo, aparelhos sempre bem cuidados e clima de foco total. Desde que comecei a treinar na Left minha evolução mudou de nível!"
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">
+            CS
+          </div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Camila Santos</h4>
+            <span class="text-xs text-gray-500 font-body">Aluna há 8 meses</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between fade-up sm:col-span-2 lg:col-span-1">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "App super prático pra liberar a catraca e ver os treinos, além de localização excelente aqui na Vila Augusta. Vale cada centavo da mensalidade."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">
+            LM
+          </div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Lucas Mendes</h4>
+            <span class="text-xs text-gray-500 font-body">Aluno há 1 ano</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -535,7 +602,7 @@
 
     </div>
 
-    <!-- Diária -->
+    <!-- Diária (Atualizada para R$ 30,00) -->
     <div id="diaria" class="mt-8 fade-up">
       <div class="steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-5">
@@ -548,8 +615,8 @@
           </div>
         </div>
         <div class="flex items-center gap-6">
-          <span class="font-display text-3xl whitespace-nowrap">R$ 25</span>
-          <button class="checkout-btn btn-primary font-bold px-7 py-3 rounded-full uppercase text-sm whitespace-nowrap" data-plan="Diária" data-price="R$ 25">
+          <span class="font-display text-3xl whitespace-nowrap">R$ 30,00</span>
+          <button class="checkout-btn btn-primary font-bold px-7 py-3 rounded-full uppercase text-sm whitespace-nowrap" data-plan="Diária" data-price="R$ 30,00">
             Comprar Diária
           </button>
         </div>
@@ -807,6 +874,7 @@
         <ul class="space-y-2.5 text-gray-500 text-sm font-body">
           <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
           <li><a href="#sobre" class="hover:text-white transition-colors">Sobre</a></li>
+          <li><a href="#depoimentos" class="hover:text-white transition-colors">Depoimentos</a></li>
           <li><a href="#planos" class="hover:text-white transition-colors">Planos</a></li>
           <li><a href="#loja" class="hover:text-white transition-colors">Loja</a></li>
         </ul>
@@ -860,7 +928,7 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  // Subtle parallax on the hero slides wrapper
+  // Parallax on hero slides
   const heroSlides = document.getElementById('heroSlides');
   window.addEventListener('scroll', () => {
     const y = Math.min(window.scrollY, 800);
@@ -887,27 +955,6 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Count-up stats when the "Sobre" numbers scroll into view
-  const counters = document.querySelectorAll('.counter');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      const duration = 900;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        el.textContent = Math.floor(progress * target);
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = target;
-      }
-      requestAnimationFrame(tick);
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.4 });
-  counters.forEach(el => counterObserver.observe(el));
 
   // Cart logic
   let cartCount = 0;
