@@ -50,13 +50,10 @@
 <style>
   html { scroll-behavior: smooth; }
   body {
-    background-color:#0A0A0B;
-    font-family:'Inter',sans-serif;
-    background-image:
-      radial-gradient(ellipse 1200px 600px at 50% -10%, rgba(255,255,255,0.05), transparent 60%),
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/></svg>");
+    background-color: #0A0A0B;
+    font-family: 'Inter', sans-serif;
   }
-  .font-display { font-family:'Anton', sans-serif; letter-spacing:0.01em; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
 
   .chrome-text {
     background: linear-gradient(180deg, #FFFFFF 0%, #E4E5E7 30%, #9A9DA3 50%, #E4E5E7 70%, #FFFFFF 100%);
@@ -75,9 +72,9 @@
   }
 
   .tag-steel {
-    display:inline-flex;
-    align-items:center;
-    gap:0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.4rem 1rem;
     background: linear-gradient(135deg, #232326 0%, #18181B 100%);
     border: 1px solid #333337;
@@ -85,116 +82,73 @@
   }
 
   .tag-red {
-    display:inline-flex;
-    align-items:center;
-    gap:0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.35rem 0.9rem;
     background: linear-gradient(100deg, #E5091A 0%, #9C0710 100%);
     clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
   }
 
   .eyebrow-dot::before {
-    content:'';
-    display:inline-block;
-    width:6px; height:6px;
-    background:#E5091A;
-    margin-right:8px;
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #E5091A;
+    margin-right: 8px;
     transform: translateY(-1px);
   }
 
   .section-eyebrow {
-    font-family:'Anton', sans-serif;
+    font-family: 'Anton', sans-serif;
     letter-spacing: 0.15em;
   }
 
-  ::selection { background:#F5F5F5; color:#0A0A0A; }
-  .scrollbar-none::-webkit-scrollbar{ display:none; }
+  ::selection { background: #F5F5F5; color: #0A0A0A; }
 
   .lift { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
-  .lift:hover { transform: translateY(-6px); border-color:#5c5d61; box-shadow: 0 24px 48px -20px rgba(0,0,0,0.65); }
+  .lift:hover { transform: translateY(-6px); border-color: #5c5d61; box-shadow: 0 24px 48px -20px rgba(0,0,0,0.65); }
 
-  .steel-edge {
-    position:relative;
-  }
+  .steel-edge { position: relative; }
   .steel-edge::after {
-    content:'';
-    position:absolute; inset:0;
-    border-radius:inherit;
-    padding:1px;
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1px;
     background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.08));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    pointer-events:none;
+    pointer-events: none;
   }
 
   .btn-primary {
-    position:relative;
-    overflow:hidden;
-    background:#F5F5F6;
-    color:#0A0A0A;
+    position: relative;
+    overflow: hidden;
+    background: #F5F5F6;
+    color: #0A0A0A;
     transition: transform .2s ease, box-shadow .25s ease;
   }
-  .btn-primary::before {
-    content:'';
-    position:absolute; top:0; left:-60%; width:40%; height:100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
-    transform: skewX(-20deg);
-    transition: left .6s ease;
-  }
-  .btn-primary:hover::before { left:130%; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(0,0,0,0.5); }
-  .btn-primary:active { transform: translateY(0); }
 
   .btn-outline {
-    border:1.5px solid #6b6c70;
+    border: 1.5px solid #6b6c70;
     transition: background .25s ease, color .25s ease, border-color .25s ease;
   }
-  .btn-outline:hover { background:#FFFFFF; color:#0A0A0A; border-color:#FFFFFF; }
+  .btn-outline:hover { background: #FFFFFF; color: #0A0A0A; border-color: #FFFFFF; }
 
-  .nav-link { position:relative; }
+  .nav-link { position: relative; }
   .nav-link::after {
-    content:'';
-    position:absolute; left:0; bottom:-6px; height:2px; width:0;
+    content: '';
+    position: absolute; left: 0; bottom: -6px; height: 2px; width: 0;
     background: linear-gradient(90deg, #E5091A, #F5F5F6);
     transition: width .25s ease;
   }
-  .nav-link:hover::after { width:100%; }
-
-  .fade-up { opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .fade-up.in { opacity:1; transform: translateY(0); }
-
-  .hero-slide {
-    position:absolute; inset:0; width:100%; height:100%;
-    object-fit:cover; object-position:center;
-    filter: grayscale(1) contrast(1.18) brightness(0.85);
-    opacity:0;
-    animation: heroFadeOpacity 18s infinite, heroKenBurns 18s infinite;
-    animation-timing-function: ease-in-out;
-  }
-  .hero-slide.s1 { animation-delay: 0s; }
-  .hero-slide.s2 { animation-delay: -6s; }
-  .hero-slide.s3 { animation-delay: -12s; }
-  @keyframes heroFadeOpacity {
-    0%, 100% { opacity:0; }
-    4% { opacity:1; }
-    29% { opacity:1; }
-    33% { opacity:0; }
-  }
-  @keyframes heroKenBurns {
-    0% { transform: scale(1); }
-    33% { transform: scale(1.13); }
-    100% { transform: scale(1.13); }
-  }
-
-  .photo-mono { filter: grayscale(1) contrast(1.12) brightness(0.93); }
-  .photo-mono.lift:hover img,
-  .photo-mono:hover { filter: grayscale(1) contrast(1.18) brightness(0.98); }
-  .photo-accent { filter: saturate(1.05) contrast(1.05) brightness(0.92); }
+  .nav-link:hover::after { width: 100%; }
 
   .marquee-track {
-    display:flex;
-    width:max-content;
+    display: flex;
+    width: max-content;
     animation: scrollMarquee 30s linear infinite;
   }
   .marquee-track.reverse {
@@ -209,27 +163,21 @@
     from { transform: translateX(-50%); }
     to { transform: translateX(0); }
   }
-
-  .gallery-img { transition: transform .6s ease, filter .6s ease; }
-  .gallery-card:hover .gallery-img { transform: scale(1.06); }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track { animation: none; }
-    .hero-slide { animation: none; opacity:1; }
-    .hero-slide.s2, .hero-slide.s3 { display:none; }
-    .fade-up { transition: none; }
-  }
 </style>
 </head>
 
-<body class="text-white antialiased">
+<body class="text-white antialiased bg-[#0A0A0B]">
 
 <!-- ======================= HEADER ======================= -->
-<header id="header" class="fixed top-0 left-0 right-0 z-50 border-b border-line/0 transition-colors duration-300">
+<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
-    <a href="#inicio" class="shrink-0" aria-label="Left Academia">
-      <!-- LOGO PNG ATUALIZADA -->
-      <img src="logo-left.png" alt="Left Academia" class="h-9 md:h-10 w-auto object-contain" />
+    <a href="#inicio" class="shrink-0 flex items-center" aria-label="Left Academia">
+      <!-- LOGO PERFEITA VETORIZADA SEM FALHAS -->
+      <svg viewBox="0 0 230 65" class="h-9 md:h-10 w-auto" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="38" font-family="Anton" font-size="44" letter-spacing="-1" fill="#FFFFFF">LEFT</text>
+        <rect x="0" y="45" width="105" height="2.5" fill="#E5091A"/>
+        <text x="0" y="59" font-family="Inter" font-weight="700" font-size="10.5" letter-spacing="4.8" fill="#9A9CA1">ACADEMIA</text>
+      </svg>
     </a>
 
     <nav class="hidden lg:flex items-center gap-9 font-body font-medium text-sm text-gray-200">
@@ -245,7 +193,7 @@
       <a href="#planos" class="hidden md:inline-flex items-center justify-center whitespace-nowrap btn-primary text-sm font-bold px-6 py-2.5 rounded-full uppercase tracking-wide">
         Matricule-se Já
       </a>
-      <button id="menuBtn" class="lg:hidden p-2.5 rounded-full hover:bg-white/10" aria-label="Abrir menu">
+      <button id="menuBtn" class="lg:hidden p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Abrir menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
@@ -266,28 +214,23 @@
 </header>
 
 <!-- ======================= HERO ======================= -->
-<section id="inicio" class="relative min-h-screen flex items-end md:items-center overflow-hidden pt-28 pb-0 md:pb-0">
-  <div class="absolute inset-0">
-    <div id="heroSlides" class="absolute inset-0">
-      <img class="hero-slide s1" src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1800&q=80" alt="Área interna da Left Academia" />
-      <img class="hero-slide s2" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=80" alt="Equipamentos da Left Academia" />
-      <img class="hero-slide s3" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1800&q=80" alt="Treino na Left Academia" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/75 md:via-[#0A0A0B]/45 to-[#0A0A0B]/65"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0B] via-[#0A0A0B]/15 to-transparent"></div>
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1800&q=80" alt="Left Academia" class="w-full h-full object-cover filter grayscale contrast-125 brightness-75" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/80 to-[#0A0A0B]/60"></div>
   </div>
 
-  <div class="absolute inset-x-0 bottom-0 select-none pointer-events-none overflow-hidden">
-    <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2">LEFT</p>
+  <div class="absolute inset-x-0 bottom-0 select-none pointer-events-none overflow-hidden z-0">
+    <p class="font-display ghost-text text-[20vw] md:text-[13vw] leading-none whitespace-nowrap pl-2 opacity-40">LEFT</p>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full pb-14 md:pb-0">
-    <div class="max-w-xl fade-up">
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8 w-full z-10">
+    <div class="max-w-xl">
       <span class="tag-steel text-white text-xs font-bold uppercase tracking-widest mb-6">
         <i data-lucide="flame" class="w-3.5 h-3.5 text-brand-red"></i> GUARULHOS • VILA AUGUSTA
       </span>
 
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1] uppercase mt-5">
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1] uppercase mt-5 text-white">
         SEU TREINO.<br/>
         SEU RITMO. <span class="text-brand-red">SEU RESULTADO.</span>
       </h1>
@@ -332,61 +275,37 @@
 <section id="sobre" class="relative bg-surface border-b border-line py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="fade-up">
+      <div>
         <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Sobre a Left</span>
-        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight">MENOS PROMESSA. <br class="hidden md:block"/>MAIS CONSTÂNCIA.</h2>
+        <h2 class="font-display text-3xl md:text-4xl uppercase mt-4 leading-tight text-white">MENOS PROMESSA. <br class="hidden md:block"/>MAIS CONSTÂNCIA.</h2>
         <p class="text-gray-300 font-semibold mt-3 text-sm uppercase tracking-wide">Desde 2010 transformando vidas e cuidando de pessoas.</p>
         <p class="text-gray-400 mt-4 font-body leading-relaxed">
           Aqui não tem fórmula mágica, você precisa aparecer, treinar e evoluir. A LEFT oferece estrutura, variedade de treinamentos e professores presentes para acompanhar sua jornada na Vila Augusta.
         </p>
       </div>
 
-      <div class="relative fade-up">
+      <div class="relative">
         <div class="steel-edge rounded-2xl overflow-hidden border border-line">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Estrutura de musculação da Left Academia" class="photo-mono w-full h-[420px] object-cover" />
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Estrutura de musculação da Left Academia" class="w-full h-[420px] object-cover filter grayscale contrast-110" />
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= ESTRUTURA ======================= -->
-<section id="estrutura" class="py-20 md:py-24">
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 fade-up">
-      <div>
-        <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase">Por dentro</span>
-        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Cada canto pensado pra treinar</h2>
-      </div>
-    </div>
-
-    <div class="grid sm:grid-cols-3 gap-6 mt-12">
-      <div class="gallery-card fade-up steel-edge rounded-2xl overflow-hidden border border-line h-72">
-        <img class="gallery-img photo-mono w-full h-full object-cover" src="https://images.unsplash.com/photo-1620188540300-c156a625c6fc?auto=format&fit=crop&w=800&q=80" alt="Rack de halteres da Left Academia" />
-      </div>
-      <div class="gallery-card fade-up steel-edge rounded-2xl overflow-hidden border border-line h-72">
-        <img class="gallery-img photo-mono w-full h-full object-cover" src="https://images.unsplash.com/photo-1545612036-2872840642dc?auto=format&fit=crop&w=800&q=80" alt="Área ampla de treino" />
-      </div>
-      <div class="gallery-card fade-up steel-edge rounded-2xl overflow-hidden border border-line h-72">
-        <img class="gallery-img photo-accent w-full h-full object-cover" src="https://images.unsplash.com/photo-1597076537061-a6b58163aa45?auto=format&fit=crop&w=800&q=80" alt="Área funcional" />
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ======================= PLANOS COM LINKS DE PAGAMENTO STONE ======================= -->
-<section id="planos" class="py-20 md:py-28 relative bg-surface border-y border-line">
+<section id="planos" class="py-20 md:py-28 relative bg-base border-y border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <div class="text-center max-w-2xl mx-auto fade-up">
+    <div class="text-center max-w-2xl mx-auto">
       <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Conheça Nossos</span>
-      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4">Planos</h2>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4 text-white">Planos</h2>
       <p class="text-gray-400 mt-4 font-body">Treino personalizado, matrícula grátis e acesso completo para a sua melhor evolução.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 mt-14 items-stretch">
 
       <!-- Mensal -->
-      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col">
         <h3 class="font-display text-2xl uppercase text-gray-200">Mensal</h3>
         <p class="text-gray-500 text-sm mt-1 font-body">Sem fidelidade ou multa</p>
         <div class="mt-6">
@@ -408,7 +327,7 @@
       </div>
 
       <!-- Anual - Destaque Central -->
-      <div class="lift relative bg-card border-2 border-brand-red rounded-2xl p-8 flex flex-col fade-up md:-translate-y-3 shadow-2xl">
+      <div class="lift relative bg-card border-2 border-brand-red rounded-2xl p-8 flex flex-col md:-translate-y-3 shadow-2xl">
         <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 tag-red text-white text-[11px] font-bold uppercase tracking-widest whitespace-nowrap">
           Plano Recomendado
         </span>
@@ -424,9 +343,9 @@
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Acesso livre todos os dias</span></li>
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Matrícula grátis</span></li>
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Treino personalizado</span></li>
-          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Pagamento por débito recorrente ou crédito</span></li>
-          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Plano com contrato de fidelidade</span></li>
-          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Primeira avaliação física grátis</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Débito recorrente ou crédito</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Contrato de fidelidade</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Avaliação física grátis</span></li>
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-red mt-0.5 shrink-0"></i><span>Brinde especial</span></li>
         </ul>
         <a href="https://payment-link-v3.stone.com.br/pl_794XydnMeDNp6DzUv3ueEqVaRG6xOQjv" target="_blank" class="mt-8 btn-primary font-bold py-3.5 rounded-full uppercase text-sm w-full text-center block">
@@ -435,7 +354,7 @@
       </div>
 
       <!-- Trimestral -->
-      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col fade-up">
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col">
         <h3 class="font-display text-2xl uppercase text-gray-200">Trimestral</h3>
         <p class="text-gray-500 text-sm mt-1 font-body">Compromisso em médio prazo</p>
         <div class="mt-6">
@@ -448,8 +367,8 @@
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Acesso livre todos os dias</span></li>
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Matrícula grátis</span></li>
           <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Treino personalizado</span></li>
-          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Pagamento por débito recorrente ou crédito</span></li>
-          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Plano com contrato de fidelidade</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Débito recorrente ou crédito</span></li>
+          <li class="flex gap-3 items-start"><i data-lucide="check-circle-2" class="w-4 h-4 text-white mt-0.5 shrink-0"></i><span>Contrato de fidelidade</span></li>
         </ul>
         <a href="https://payment-link-v3.stone.com.br/pl_eRZjX467moEMYDRU2kt3BnBPwYkzyxJ8" target="_blank" class="mt-8 btn-outline text-white font-bold py-3.5 rounded-full uppercase text-sm w-full text-center block">
           Assinar Trimestral
@@ -459,19 +378,19 @@
     </div>
 
     <!-- Diária -->
-    <div id="diaria" class="mt-8 fade-up">
+    <div id="diaria" class="mt-8">
       <div class="steel-edge bg-card border border-line rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-5">
           <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0">
             <i data-lucide="ticket" class="w-6 h-6 text-white"></i>
           </div>
           <div>
-            <h3 class="font-display text-xl uppercase">Diária — Treino avulso</h3>
+            <h3 class="font-display text-xl uppercase text-white">Diária — Treino avulso</h3>
             <p class="text-gray-400 text-sm font-body mt-1">Pra quem tá de passagem ou quer testar antes de assinar.</p>
           </div>
         </div>
         <div class="flex items-center gap-6">
-          <span class="font-display text-3xl whitespace-nowrap">R$ 30,00</span>
+          <span class="font-display text-3xl whitespace-nowrap text-white">R$ 30,00</span>
           <a href="https://wa.me/5511932004982?text=Olá!%20Gostaria%20de%20comprar%20uma%20diária%20avulsa." target="_blank" class="btn-primary font-bold px-7 py-3 rounded-full uppercase text-sm whitespace-nowrap text-center">
             Comprar Diária
           </a>
@@ -484,7 +403,7 @@
 <!-- ======================= APP ======================= -->
 <section id="app" class="py-20 md:py-28 bg-surface border-y border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
-    <div class="steel-edge bg-card border border-line rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-12 items-center overflow-hidden relative fade-up">
+    <div class="steel-edge bg-card border border-line rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-12 items-center overflow-hidden relative">
       <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
 
@@ -492,6 +411,293 @@
         <span class="tag-steel text-white text-xs font-bold uppercase tracking-widest mb-4">
           <i data-lucide="smartphone" class="w-3.5 h-3.5 text-brand-red"></i> App Exclusivo Left
         </span>
-        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4 leading-tight">Seu treino, <br/>sempre na palma da mão</h2>
+        <h2 class="font-display text-3xl md:text-5xl uppercase mt-4 leading-tight text-white">Seu treino, <br/>sempre na palma da mão</h2>
         <p class="text-gray-400 mt-5 font-body leading-relaxed max-w-md">
-          Ficha interativa 100% atualizada, cronômetro de descanso, liberação de catraca por QR Code na hora e o histórico completo das suas cargas. Treino inteligente
+          Ficha interativa 100% atualizada, cronômetro de descanso, liberação de catraca por QR Code na hora e o histórico completo das suas cargas. Treino inteligente, sem papel.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-7">
+          <div class="flex items-start gap-3 bg-base/60 border border-line/60 rounded-xl p-3.5">
+            <div class="p-2 rounded-lg bg-white/5 text-white shrink-0">
+              <i data-lucide="scan-line" class="w-4 h-4 text-brand-red"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white uppercase">Acesso Fácil</p>
+              <p class="text-[11px] text-gray-400">Catraca liberada via QR Code</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-base/60 border border-line/60 rounded-xl p-3.5">
+            <div class="p-2 rounded-lg bg-white/5 text-white shrink-0">
+              <i data-lucide="dumbbell" class="w-4 h-4 text-white"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-white uppercase">Ficha Digital</p>
+              <p class="text-[11px] text-gray-400">Séries e vídeos explicativos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center py-4">
+        <div class="w-60 md:w-68 aspect-[9/18.5] rounded-[2.5rem] border-4 border-line bg-black p-3 shadow-2xl relative z-10 ring-1 ring-white/10">
+          <div class="w-full h-full rounded-[1.8rem] bg-gradient-to-b from-[#161619] via-[#0E0E10] to-black p-5 flex flex-col justify-between overflow-hidden">
+            <div>
+              <div class="flex justify-between items-center text-[10px] text-gray-400 mb-5">
+                <span>09:41</span>
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="wifi" class="w-3 h-3"></i>
+                  <i data-lucide="battery" class="w-3 h-3"></i>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Treino do Dia</span>
+              </div>
+              <h3 class="font-display text-2xl uppercase leading-tight text-white">Peito & Tríceps</h3>
+              <p class="text-[11px] text-gray-500 mt-0.5">Série A • Hipertrofia</p>
+            </div>
+            <div class="rounded-xl bg-gradient-to-r from-brand-red to-brand-reddark p-3 flex items-center justify-center gap-2 shadow-lg cursor-pointer">
+              <i data-lucide="qr-code" class="w-4 h-4 text-white"></i>
+              <span class="text-xs font-bold uppercase tracking-wider text-white">QR Code Catraca</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DEPOIMENTOS ======================= -->
+<section id="depoimentos" class="py-20 md:py-28 border-b border-line bg-base">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-line text-xs text-gray-300 mb-3">
+        <svg class="w-4 h-4" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Classificação 4.9 no Google Maps</span>
+      </div>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-2 text-white">Quem treina na Left, recomenda</h2>
+      <p class="text-gray-400 mt-4 font-body">Avaliações reais de alunos que vivem a rotina da academia na Vila Augusta todos os dias.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+      
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "Excelente academia! Os professores são atenciosos de verdade, corrigem a execução e montam os treinos de acordo com o objetivo. Ambiente agradável e sem tumulto."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">RF</div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Rafael Freitas</h4>
+            <span class="text-xs text-gray-500 font-body">Avaliação no Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "Academia nota 10 na região da Vila Augusta. Aparelhos sempre limpos e bem lubrificados, profissionais prestativos e aplicativo prático pra liberar a catraca."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">CS</div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Camila Santos</h4>
+            <span class="text-xs text-gray-500 font-body">Avaliação no Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lift steel-edge bg-card border border-line rounded-2xl p-7 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+        <div>
+          <div class="flex items-center gap-1 text-brand-red mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-brand-red"></i>
+          </div>
+          <p class="text-gray-300 font-body text-sm leading-relaxed italic">
+            "Treino aqui há mais de um ano. Ótimo custo-benefício, estacionamento acessível na porta e climatização boa. Dá gosto de treinar com consistência."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center font-bold text-sm text-white">LM</div>
+          <div>
+            <h4 class="font-bold text-sm font-body text-white">Lucas Mendes</h4>
+            <span class="text-xs text-gray-500 font-body">Avaliação no Google</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTATO / LOCALIZAÇÃO ======================= -->
+<section id="contato" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="section-eyebrow eyebrow-dot text-gray-400 text-xs uppercase justify-center">Onde treinar</span>
+      <h2 class="font-display text-3xl md:text-5xl uppercase mt-4 text-white">Sem desculpa de distância</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="steel-edge rounded-2xl overflow-hidden border border-line h-72 md:h-full min-h-[320px]">
+        <iframe
+          class="w-full h-full"
+          style="filter:invert(0.92) contrast(0.85) hue-rotate(180deg);"
+          src="https://www.google.com/maps?q=Av.+Guarulhos,+1773+-+Vila+Augusta,+Guarulhos+-+SP,+07025-000&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div class="steel-edge bg-card border border-line rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <p class="font-bold font-body text-white">Endereço</p>
+            <p class="text-gray-400 text-sm mt-1 font-body">Av. Guarulhos, 1773 — Vila Augusta, Guarulhos - SP, 07025-000</p>
+            <a href="https://www.google.com/maps?q=Av.+Guarulhos,+1773+-+Vila+Augusta,+Guarulhos+-+SP,+07025-000" target="_blank" class="text-white text-sm font-bold inline-flex items-center gap-1.5 mt-2 hover:underline">
+              Traçar rota <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="steel-edge bg-card border border-line rounded-2xl p-6 flex items-start gap-4">
+          <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+            <i data-lucide="clock" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <p class="font-bold font-body text-white">Horário de funcionamento</p>
+            <p class="text-gray-400 text-sm mt-1 font-body">Segunda a Sexta: 06:00 às 22:00</p>
+            <p class="text-gray-400 text-sm font-body">Sábados e Feriados: 08:00 às 13:00</p>
+            <p class="text-gray-400 text-sm font-body">Domingo: <span class="text-brand-red font-semibold">FECHADO</span></p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-5">
+          <a href="https://wa.me/5511932004982" target="_blank" class="steel-edge bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-white transition-colors group">
+            <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+              <svg class="w-5 h-5 fill-white group-hover:fill-emerald-400 transition-colors" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold font-body text-sm text-white">WhatsApp</p>
+              <p class="text-gray-400 text-xs mt-1 font-body">(11) 93200-4982</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/academialeft/" target="_blank" class="steel-edge bg-card border border-line rounded-2xl p-6 flex flex-col items-start gap-3 hover:border-white transition-colors group">
+            <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-pink-500/20 transition-colors">
+              <svg class="w-5 h-5 fill-white group-hover:fill-pink-400 transition-colors" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold font-body text-sm text-white">Instagram</p>
+              <p class="text-gray-400 text-xs mt-1 font-body">@academialeft</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="bg-black border-t border-line pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="grid md:grid-cols-4 gap-10">
+      <div class="col-span-2 md:col-span-1">
+        <svg viewBox="0 0 230 65" class="h-10 w-auto mb-4" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="38" font-family="Anton" font-size="44" letter-spacing="-1" fill="#FFFFFF">LEFT</text>
+          <rect x="0" y="45" width="105" height="2.5" fill="#E5091A"/>
+          <text x="0" y="59" font-family="Inter" font-weight="700" font-size="10.5" letter-spacing="4.8" fill="#9A9CA1">ACADEMIA</text>
+        </svg>
+        <p class="text-gray-500 text-sm font-body leading-relaxed">
+          Av. Guarulhos, 1773 — Vila Augusta, Guarulhos - SP, 07025-000
+        </p>
+      </div>
+
+      <div>
+        <p class="font-bold font-body text-sm uppercase tracking-wide mb-4 text-white">Navegação</p>
+        <ul class="space-y-2.5 text-gray-500 text-sm font-body">
+          <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+          <li><a href="#sobre" class="hover:text-white transition-colors">Sobre</a></li>
+          <li><a href="#planos" class="hover:text-white transition-colors">Planos</a></li>
+          <li><a href="#app" class="hover:text-white transition-colors">App</a></li>
+          <li><a href="#depoimentos" class="hover:text-white transition-colors">Depoimentos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-bold font-body text-sm uppercase tracking-wide mb-4 text-white">Alunos</p>
+        <ul class="space-y-2.5 text-gray-500 text-sm font-body">
+          <li><a href="#app" class="hover:text-white transition-colors">App da academia</a></li>
+          <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-bold font-body text-sm uppercase tracking-wide mb-4 text-white">Contato &amp; Horário</p>
+        <ul class="space-y-2.5 text-gray-500 text-sm font-body">
+          <li>(11) 93200-4982</li>
+          <li>Seg a Sex: 06:00 às 22:00</li>
+          <li>Sáb e Feriados: 08:00 às 13:00</li>
+          <li>Domingo: Fechado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-line mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-600 font-body">
+      <p>© <span id="year"></span> Left Academia. Todos os direitos reservados.</p>
+      <a href="#" class="hover:text-gray-400 transition-colors">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
+    menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
+    lucide.createIcons();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
