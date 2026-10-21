@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Left Academia — Resultado não espera segunda</title>
-<meta name="description" content="Left Academia em Guarulhos. Matricule-se, compre sua diária e treine com quem entende de resultado." />
+<title>Left Academia | Musculação e Treinamento na Vila Augusta, Guarulhos</title>
+<meta name="description" content="Treine na Left Academia na Vila Augusta, Guarulhos. Musculação com acompanhamento profissional, treino personalizado no app, estrutura completa e planos sem fidelidade." />
+<meta property="og:title" content="Left Academia | Vila Augusta, Guarulhos" />
+<meta property="og:description" content="Musculação, treinamento personalizado e acompanhamento profissional para você evoluir todos os dias." />
+<meta property="og:image" content="logoleft.png" />
+<link rel="icon" type="image/png" href="logoleft.png" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,14 +150,32 @@
   }
   .nav-link:hover::after { width: 100%; }
 
+  /* Animação da imagem de fundo (Ken Burns dinâmico) */
+  @keyframes heroZoomPan {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.12) translate(-1.5%, -1%);
+    }
+    100% {
+      transform: scale(1.04) translate(1%, -1.5%);
+    }
+  }
+  .hero-bg-anim {
+    animation: heroZoomPan 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  /* Faixas animadas (Marquee Duplo) */
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: scrollMarquee 30s linear infinite;
+    animation: scrollMarquee 28s linear infinite;
   }
   .marquee-track.reverse {
     animation-name: scrollMarqueeReverse;
-    animation-duration: 34s;
+    animation-duration: 32s;
   }
   @keyframes scrollMarquee {
     from { transform: translateX(0); }
@@ -172,12 +194,7 @@
 <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0B]/90 backdrop-blur-md border-b border-line">
   <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
     <a href="#inicio" class="shrink-0 flex items-center" aria-label="Left Academia">
-      <!-- LOGO PERFEITA VETORIZADA SEM FALHAS -->
-      <svg viewBox="0 0 230 65" class="h-9 md:h-10 w-auto" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="38" font-family="Anton" font-size="44" letter-spacing="-1" fill="#FFFFFF">LEFT</text>
-        <rect x="0" y="45" width="105" height="2.5" fill="#E5091A"/>
-        <text x="0" y="59" font-family="Inter" font-weight="700" font-size="10.5" letter-spacing="4.8" fill="#9A9CA1">ACADEMIA</text>
-      </svg>
+      <img src="logoleft.png" alt="Left Academia" class="h-10 md:h-12 w-auto object-contain" />
     </a>
 
     <nav class="hidden lg:flex items-center gap-9 font-body font-medium text-sm text-gray-200">
@@ -215,8 +232,8 @@
 
 <!-- ======================= HERO ======================= -->
 <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16">
-  <div class="absolute inset-0 z-0">
-    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1800&q=80" alt="Left Academia" class="w-full h-full object-cover filter grayscale contrast-125 brightness-75" />
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <img id="heroBg" src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1800&q=80" alt="Left Academia" class="hero-bg-anim w-full h-full object-cover filter grayscale contrast-125 brightness-75" />
     <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/80 to-[#0A0A0B]/60"></div>
   </div>
 
@@ -230,9 +247,10 @@
         <i data-lucide="flame" class="w-3.5 h-3.5 text-brand-red"></i> GUARULHOS • VILA AUGUSTA
       </span>
 
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1] uppercase mt-5 text-white">
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] uppercase mt-5 text-white">
         SEU TREINO.<br/>
-        SEU RITMO. <span class="text-brand-red">SEU RESULTADO.</span>
+        SEU RITMO.<br/>
+        <span class="text-brand-red whitespace-nowrap">SEU RESULTADO.</span>
       </h1>
 
       <p class="mt-6 text-gray-300 text-base md:text-lg font-body leading-relaxed max-w-md">
@@ -251,23 +269,50 @@
   </div>
 </section>
 
-<!-- ======================= MARQUEE TICKER ======================= -->
-<div class="border-y border-line bg-surface py-3 overflow-hidden">
-  <div class="marquee-track font-display text-xl md:text-2xl uppercase tracking-wide chrome-text">
-    <span class="flex items-center gap-6 pr-6">
-      <span>Sem desculpa</span><span class="text-brand-red text-sm">✦</span>
-      <span>Só resultado</span><span class="text-brand-red text-sm">✦</span>
-      <span>Se fosse fácil, todo mundo fazia</span><span class="text-brand-red text-sm">✦</span>
-      <span>O espelho não mente</span><span class="text-brand-red text-sm">✦</span>
-      <span>Aparece ou desiste</span><span class="text-brand-red text-sm">✦</span>
-    </span>
-    <span class="flex items-center gap-6 pr-6" aria-hidden="true">
-      <span>Sem desculpa</span><span class="text-brand-red text-sm">✦</span>
-      <span>Só resultado</span><span class="text-brand-red text-sm">✦</span>
-      <span>Se fosse fácil, todo mundo fazia</span><span class="text-brand-red text-sm">✦</span>
-      <span>O espelho não mente</span><span class="text-brand-red text-sm">✦</span>
-      <span>Aparece ou desiste</span><span class="text-brand-red text-sm">✦</span>
-    </span>
+<!-- ======================= MARQUEE TICKER DUPLO ======================= -->
+<div class="relative bg-base overflow-hidden">
+  <!-- Faixa 1: Vermelha (Direita para Esquerda) -->
+  <div class="border-y border-brand-reddark bg-brand-red py-3 overflow-hidden relative z-10">
+    <div class="marquee-track font-display text-xl md:text-2xl uppercase tracking-wider text-white">
+      <span class="flex items-center gap-6 pr-6">
+        <span>Musculação</span><span class="text-black/60 text-sm">✦</span>
+        <span>Treino Personalizado</span><span class="text-black/60 text-sm">✦</span>
+        <span>Acompanhamento Real</span><span class="text-black/60 text-sm">✦</span>
+        <span>Sem Fidelidade no Mensal</span><span class="text-black/60 text-sm">✦</span>
+        <span>Vila Augusta • Guarulhos</span><span class="text-black/60 text-sm">✦</span>
+        <span>Evolução Constante</span><span class="text-black/60 text-sm">✦</span>
+      </span>
+      <span class="flex items-center gap-6 pr-6" aria-hidden="true">
+        <span>Musculação</span><span class="text-black/60 text-sm">✦</span>
+        <span>Treino Personalizado</span><span class="text-black/60 text-sm">✦</span>
+        <span>Acompanhamento Real</span><span class="text-black/60 text-sm">✦</span>
+        <span>Sem Fidelidade no Mensal</span><span class="text-black/60 text-sm">✦</span>
+        <span>Vila Augusta • Guarulhos</span><span class="text-black/60 text-sm">✦</span>
+        <span>Evolução Constante</span><span class="text-black/60 text-sm">✦</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Faixa 2: Escura / Metálica (Esquerda para Direita - Reverse) -->
+  <div class="border-b border-line bg-surface py-3 overflow-hidden">
+    <div class="marquee-track reverse font-display text-xl md:text-2xl uppercase tracking-wide chrome-text">
+      <span class="flex items-center gap-6 pr-6">
+        <span>Sem desculpa</span><span class="text-brand-red text-sm">✦</span>
+        <span>Só resultado</span><span class="text-brand-red text-sm">✦</span>
+        <span>Mais constância</span><span class="text-brand-red text-sm">✦</span>
+        <span>Estrutura completa</span><span class="text-brand-red text-sm">✦</span>
+        <span>Ficha digital no App</span><span class="text-brand-red text-sm">✦</span>
+        <span>Desde 2010</span><span class="text-brand-red text-sm">✦</span>
+      </span>
+      <span class="flex items-center gap-6 pr-6" aria-hidden="true">
+        <span>Sem desculpa</span><span class="text-brand-red text-sm">✦</span>
+        <span>Só resultado</span><span class="text-brand-red text-sm">✦</span>
+        <span>Mais constância</span><span class="text-brand-red text-sm">✦</span>
+        <span>Estrutura completa</span><span class="text-brand-red text-sm">✦</span>
+        <span>Ficha digital no App</span><span class="text-brand-red text-sm">✦</span>
+        <span>Desde 2010</span><span class="text-brand-red text-sm">✦</span>
+      </span>
+    </div>
   </div>
 </div>
 
@@ -637,11 +682,7 @@
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <div class="grid md:grid-cols-4 gap-10">
       <div class="col-span-2 md:col-span-1">
-        <svg viewBox="0 0 230 65" class="h-10 w-auto mb-4" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="38" font-family="Anton" font-size="44" letter-spacing="-1" fill="#FFFFFF">LEFT</text>
-          <rect x="0" y="45" width="105" height="2.5" fill="#E5091A"/>
-          <text x="0" y="59" font-family="Inter" font-weight="700" font-size="10.5" letter-spacing="4.8" fill="#9A9CA1">ACADEMIA</text>
-        </svg>
+        <img src="logoleft.png" alt="Left Academia" class="h-10 md:h-12 w-auto object-contain mb-4" />
         <p class="text-gray-500 text-sm font-body leading-relaxed">
           Av. Guarulhos, 1773 — Vila Augusta, Guarulhos - SP, 07025-000
         </p>
@@ -694,6 +735,15 @@
     const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
     menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
     lucide.createIcons();
+  });
+
+  // Fecha o menu mobile ao clicar em qualquer link
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
+      lucide.createIcons();
+    });
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
